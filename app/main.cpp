@@ -16,13 +16,13 @@ int main(){
         cout << "2. Pause current song" << endl;
         cout << "3. Skip to next track" << endl;
         cout << "4. Skip to previous track" << endl;
-        cout << "5. Add a song to the current playlist" << endl;
-        cout << "6. Remove a song from the current playlist" << endl;
-        cout << "7. Create a new playlist" << endl;
-        cout << "8. Delete a playlist" << endl;
-        cout << "9. Select a playlist" << endl;
-        cout << "10. Add a song to the selected playlist" << endl;
-        cout << "11. Remove a song from the selected playlist" << endl;
+        cout << "5. Remove a song from the current playlist" << endl;
+        cout << "6. Create a new playlist" << endl;
+        cout << "7. Delete a playlist" << endl;
+        cout << "8. Select a playlist" << endl;
+        cout << "9. Add a song to the selected playlist" << endl;
+        cout << "10. Remove a song from the selected playlist" << endl;
+        cout << "11. Select a song in the current playlist" << endl;
         cout << "12. Exit" << endl;
         
         cout << "Enter your choice: ";
@@ -43,18 +43,9 @@ int main(){
                 jukebox.skipToPreviousTrack();
                 break;
             
-            case 5: {
-                string title, artist;
-                cout << "Enter title of the song: ";
-                cin.ignore();
-                getline(cin, title);
-                cout << "Enter artist of the song: ";
-                getline(cin, artist);
-                jukebox.addSongToPlaylist(title, artist);
-                break;
-            }
+
                 
-            case 6: {
+            case 5: {
                 string title, artist;
                 cout << "Enter title of the song to remove: ";
                 cin.ignore();
@@ -65,7 +56,7 @@ int main(){
                 break;
             }
                 
-            case 7: {
+            case 6: {
                 string name, description;
                 cout << "Enter name of the playlist: ";
                 cin.ignore();
@@ -76,7 +67,7 @@ int main(){
                 break;
             }
                 
-            case 8: {
+            case 7: {
                 string name;
                 cout << "Enter name of the playlist to delete; ";
                 cin.ignore();
@@ -85,7 +76,7 @@ int main(){
                 break;
             }
                 
-            case 9: {
+            case 8: {
                 string name;
                 cout << "Enter name of the playlist to select: ";
                 cin.ignore();
@@ -94,7 +85,7 @@ int main(){
                 break;
             }
                 
-            case 10: {
+            case 9: {
                 string title, artist;
                 cout << "Enter title of the song: ";
                 cin.ignore();
@@ -105,7 +96,7 @@ int main(){
                 break;
             }
                 
-            case 11: {
+            case 10: {
                 string title, artist;
                 cout << "Enter title of the song to remove: ";
                 cin.ignore();
@@ -114,7 +105,21 @@ int main(){
                 getline(cin, artist);
                 jukebox.removeSongFromSelectedPlaylist(title, artist);
                 break;
+                
             }
+                
+            case 11: {
+                string title, artist;
+                cout << "Enter title of the song: ";
+                cin.ignore();
+                getline(cin, title);
+                cout << "Enter artist of the song: ";
+                getline(cin, artist);
+                jukebox.selectSong(title, artist);
+                break;
+            }
+                
+     
                 
             case 12:
                 

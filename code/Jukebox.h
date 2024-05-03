@@ -58,9 +58,6 @@ public:
     //Function to skip to the previous track
     void skipToPreviousTrack();
     
-    //Function to add a song to the current playlist
-    void addSongToPlaylist(const string& tgitle, const string& artist);
-    
     //Function to remove a song from the current playlist 
     void removeSongFromPlaylist(const string& title, const string& artist);
     
@@ -76,8 +73,15 @@ public:
     //Function to add a song to the selected playlist
     void addSongToSelectedPlaylist(const string& title, const string& artist);
     
-    //Functiuon to remove a song from the selected playlist
+    //Function to remove a song from the selected playlist
     void removeSongFromSelectedPlaylist(const string& title, const string& artist);
+    
+    //Function to select a song within the selected playlist
+    void selectSong(const string& title, const string& artist);
+    
+
+    
+  
     
     
 private:

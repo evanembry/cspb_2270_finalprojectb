@@ -5,7 +5,7 @@
 
 
 
-// constructor, initialize class variables and pointers here if need.
+
 Jukebox::Jukebox() : firstPlaylist(nullptr), currentPlaylist(nullptr), currentSong(nullptr) {}
 
 Jukebox::~Jukebox() {}
@@ -97,6 +97,8 @@ void Jukebox::removeSongFromSelectedPlaylist(const string& title, const string& 
     removeFromSelectedPlaylist(songToRemove);
 }
 
+
+
 PlaylistNode* Jukebox::findPlaylistByName(const string& name) {
     PlaylistNode* cursor = firstPlaylist;
     while (cursor) 
@@ -111,7 +113,7 @@ PlaylistNode* Jukebox::findPlaylistByName(const string& name) {
     return nullptr;
 }
 
-SongNode * Jukebox::findSongInSelectedPlaylist(const string& title, const string& artist) {
+SongNode* Jukebox::findSongInSelectedPlaylist(const string& title, const string& artist) {
     
     if (!currentPlaylist) 
     {
@@ -259,16 +261,24 @@ void Jukebox::removeFromSelectedPlaylist(SongNode* song)
     delete song;
 }
 
-void Jukebox::addSongToPlaylist(const string&title, const string& artist) {
-    if (!currentPlaylist)
+
+void Jukebox::selectSong(const string& title, const string& artist)
+{
+    currentSong = findSongInSelectedPlaylist(title, artist);
+    
+    if (currentSong) 
     {
-        cout << "No Playlist selected." << endl;
-        return;
+        cout << "Selected song: " << currentSong->title << " - " << currentSong->artist << endl;
     }
     
-    SongNode* newSong = new SongNode(title, artist);
-    addToFrontOfSelectedPlaylist(newSong);
+    else 
+    {
+        cout << "Song not found in the selected playlist." << endl;
+    }
+    
 }
+
+
 
 void Jukebox::removeSongFromPlaylist(const string& title, const string& artist) {
     if (!currentPlaylist)
